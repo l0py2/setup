@@ -1,0 +1,32 @@
+#!/bin/sh
+
+cd ./dotfiles
+
+copy() {
+	cp -rfvT "$1" "$2"
+}
+
+list_presets() {
+	printf 'Available presets:\n'
+	ls -1 ./presets
+}
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+
+if [ -z "$1" ]
+then
+	printf 'Preset not specified\n\n'
+	list_presets
+
+	exit 1
+fi
+
+if [ ! -f "./presets/$1" ]
+then
+	printf 'Preset %s not found\n\n' "$1"
+	list_presets
+
+	exit 1
+fi
+
+. "./presets/$1"
