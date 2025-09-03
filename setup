@@ -1,0 +1,60 @@
+#!/bin/sh
+
+BASE_DIR="$(pwd)"
+INSTALL_PRESETS='./install/presets'
+DOTFILES_PRESETS='./dotfiles/presets'
+
+copy() {
+	cp -rfvT "$1" "$2"
+}
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+
+install_setup() {
+	printf 'Available install presets:\n'
+	ls -1 "$INSTALL_PRESETS"
+	printf 'Install preset to use or empty to skip: '
+	read -r selected_preset
+
+	if [ -z "$selected_preset" ]
+	then
+		return
+	fi
+
+	if [ ! -f "$INSTALL_PRESETS/$selected_preset" ]
+	then
+		printf 'Install preset %s not found\n' "$selected_preset"
+
+		return
+	fi
+
+	cd './install'
+	. "./presets/$selected_preset"
+	cd "$BASE_DIR"
+}
+
+dotfiles_setup() {
+	printf 'Available dotfiles presets:\n'
+	ls -1 "$DOTFILES_PRESETS"
+	printf 'Dotfiles preset to use or empty to skip: '
+	read -r selected_preset
+
+	if [ -z "$selected_preset" ]
+	then
+		return
+	fi
+
+	if [ ! -f "$DOTFILES_PRESETS/$selected_preset" ]
+	then
+		printf 'Dotfiles preset %s not found\n' "$selected_preset"
+
+		return
+	fi
+
+	cd ./dotfiles
+	. "./presets/$selected_preset"
+	cd "$BASE_DIR"
+}
+
+install_setup
+dotfiles_setup

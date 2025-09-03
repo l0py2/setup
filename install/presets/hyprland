@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sudo pacman -S --needed - < ./pkg-lists/hyprland.txt
+
+sudo systemctl enable ly.service
+sudo systemctl start ly.service
+
+cd "$HOME"
+
+xdg-user-dirs-update
