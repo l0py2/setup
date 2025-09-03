@@ -1,3 +1,4 @@
 #!/bin/sh
 
 . presets/base
+copy xfce4 "$XDG_CONFIG_HOME/xfce4"
