@@ -1,6 +1,5 @@
 #!/bin/sh
 
-BASE_DIR="$(pwd)"
 INSTALL_PRESETS='./install/presets'
 DOTFILES_PRESETS='./dotfiles/presets'
 
@@ -30,7 +29,6 @@ install_setup() {
 
 	cd './install'
 	. "./presets/$selected_preset"
-	cd "$BASE_DIR"
 }
 
 dotfiles_setup() {
@@ -53,8 +51,7 @@ dotfiles_setup() {
 
 	cd ./dotfiles
 	. "./presets/$selected_preset"
-	cd "$BASE_DIR"
 }
 
-install_setup
-dotfiles_setup
+(install_setup)
+(dotfiles_setup)

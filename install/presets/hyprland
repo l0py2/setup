@@ -3,7 +3,8 @@
 sudo pacman -S --needed - < ./pkg-lists/hyprland.txt
 
 sudo systemctl enable ly.service
-sudo systemctl start ly.service
+
+./setup-paru
 
 cd "$HOME"
 
