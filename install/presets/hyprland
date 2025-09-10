@@ -6,6 +6,8 @@ sudo systemctl enable ly.service
 
 ./setup-paru
 
+paru -S --needed - < ./pkg-lists/hyprland-aur.txt
+
 cd "$HOME"
 
 xdg-user-dirs-update
