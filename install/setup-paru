@@ -6,7 +6,7 @@ if [ $? = 1 ]
 then
 	sudo pacman -S --needed base-devel
 
-	git clone --depth 1 https://aur.archlinux.org/paru.git paru
+	git clone --depth 1 https://aur.archlinux.org/paru-bin.git paru
 	cd paru || exit 1
 
 	makepkg -si || exit 1
