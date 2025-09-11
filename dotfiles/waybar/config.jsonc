@@ -1,0 +1,41 @@
+{
+	"layer": "bottom",
+	"position": "top",
+	"modules-left": ["hyprland/workspaces", "mpd", "hyprland/window"],
+	"modules-center": ["clock"],
+	"modules-right": ["tray", "pulseaudio", "backlight", "battery"],
+	"margin": "8 8 0 8",
+	"spacing": 0,
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"persistent-workspaces": {
+			"*": 7
+		}
+	},
+	"clock": {
+		"tooltip": true,
+		"tooltip-format": "<tt>{calendar}</tt>",
+		"actions": {
+			"on-click-right": "mode"
+		},
+		"calendar": {
+			"mode-mon-col": 4,
+			"format": {
+				"today": "<b><i><u>{}</u></i></b>"
+			}
+		}
+	},
+	"pulseaudio": {
+		"format": "{format_source} {volume}% ",
+		"format-muted": "{volume}% ",
+		"format-source": "{volume}% ",
+		"format-source-muted": "{volume}% ",
+		"on-click": "pavucontrol"
+	},
+	"backlight": {
+		"format": "{percent}% "
+	},
+	"battery": {
+		"format": "{capacity}% ",
+	}
+}

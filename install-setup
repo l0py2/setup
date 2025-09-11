@@ -1,0 +1,23 @@
+#!/bin/sh
+
+PRESETS='./install/presets'
+
+printf 'Available install presets:\n'
+ls -1 "$PRESETS"
+printf 'Install preset to use or empty to exit: '
+read -r selected_preset
+
+if [ -z "$selected_preset" ]
+then
+	exit 0
+fi
+
+if [ ! -f "$PRESETS/$selected_preset" ]
+then
+	printf 'Install preset %s not found\n' "$selected_preset"
+
+	exit 1
+fi
+
+cd './install'
+. "./presets/$selected_preset"
