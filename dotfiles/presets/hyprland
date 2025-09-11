@@ -2,3 +2,4 @@
 
 . presets/base
 copy xfce4 "$XDG_CONFIG_HOME/xfce4"
+copy foot "$XDG_CONFIG_HOME/foot"
