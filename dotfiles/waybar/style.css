@@ -1,0 +1,34 @@
+@import "catppuccin-mocha.css";
+
+* {
+	border: none;
+	font-family: Noto Sans, Noto Sans Nerd Font;
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+}
+
+#waybar, tooltip {
+	background: @base;
+	color: @text
+}
+
+tooltip {
+	border: 2px solid @red;
+	border-radius: 4px;
+}
+
+button, label {
+	padding: 4px;
+}
+
+#workspaces button.active {
+	background-color: @sky;
+	color: @mantle;
+}
+
+#workspaces button.urgent {
+	background-color: @red;
+	color: @mantle;
+}
