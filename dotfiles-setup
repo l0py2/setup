@@ -6,12 +6,7 @@ copy() {
 	cp -rfvT "$1" "$2"
 }
 
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
-
-printf 'Available dotfiles presets:\n'
-ls -1 "$PRESETS"
-printf 'Dotfiles preset to use or empty to exit: '
-read -r selected_preset
+selected_preset="$1"
 
 if [ -z "$selected_preset" ]
 then
@@ -24,6 +19,8 @@ then
 
 	exit 1
 fi
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 
 cd ./dotfiles
 . "./presets/$selected_preset"

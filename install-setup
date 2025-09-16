@@ -2,10 +2,7 @@
 
 PRESETS='./install/presets'
 
-printf 'Available install presets:\n'
-ls -1 "$PRESETS"
-printf 'Install preset to use or empty to exit: '
-read -r selected_preset
+selected_preset="$1"
 
 if [ -z "$selected_preset" ]
 then
