@@ -1,7 +1,7 @@
 {
 	"layer": "bottom",
 	"position": "top",
-	"modules-left": ["hyprland/workspaces", "custom/run", "mpd", "hyprland/window"],
+	"modules-left": ["hyprland/workspaces", "mpd", "hyprland/window"],
 	"modules-center": ["clock"],
 	"modules-right": ["tray", "pulseaudio", "backlight", "battery"],
 	"margin": "0",
@@ -11,11 +11,6 @@
 		"persistent-workspaces": {
 			"*": 7
 		}
-	},
-	"custom/run": {
-		"format": "",
-		"tooltip": false,
-		"on-click": "wofi --show drun"
 	},
 	"clock": {
 		"tooltip": true,
