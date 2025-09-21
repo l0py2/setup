@@ -1,0 +1,23 @@
+[global]
+origin = top-right
+notification_limit = 6
+sort = update
+dmenu = wofi --show dmenu -p Action
+font = Noto Sans 10
+separator_color = frame
+frame_color = "#89b4fa"
+highlight = "#89b4fa"
+icon_theme = Adwaita
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
