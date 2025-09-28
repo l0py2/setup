@@ -7,10 +7,13 @@ dunst
 flatpak
 foot
 git
+grim
 gvfs
 hypridle
 hyprland
 hyprlock
+hyprpaper
+hyprpicker
 hyprpolkitagent
 ly
 man-db
@@ -28,6 +31,7 @@ pipewire-jack
 pipewire-pulse
 qt5ct
 qt6ct
+slurp
 swww
 texinfo
 thunar
@@ -36,6 +40,7 @@ thunar-volman
 ttf-noto-nerd
 waybar
 wireplumber
+wl-clipboard
 wofi
 xarchiver
 xdg-desktop-portal-gtk
