@@ -13,6 +13,7 @@
 		}
 	},
 	"clock": {
+		"format": "{:%H:%M %d/%m/%y}",
 		"tooltip": true,
 		"tooltip-format": "<tt>{calendar}</tt>",
 		"actions": {
