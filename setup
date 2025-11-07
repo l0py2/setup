@@ -1,0 +1,70 @@
+#!/bin/sh
+
+CONFIG_PRESETS='./config/presets'
+
+copy() {
+	cp -rfvT "$1" "$2"
+}
+
+help() {
+	printf 'Usage: %s [preset name]\n' "$0"
+}
+
+setup_config() {
+	if [ ! -f "$CONFIG_PRESETS/$1" ]
+	then
+		printf 'Configuration preset %s not found\n' "$1"
+		return 1
+	fi
+
+	(
+		cd ./config
+		. "./presets/$1"
+	)
+}
+
+setup_install() {
+	sudo pacman -S --needed xdg-user-dirs
+	xdg-user-dirs-update
+
+	./install/setup-paru
+
+	pkg_list="./install/pkg-lists/$1.txt"
+	if [ -f "$pkg_list" ]
+	then
+		sudo pacman -S --needed - < "$pkg_list"
+	fi
+
+	aur_pkg_list="./install/pkg-lists/$1-aur.txt"
+	if [ -f "$aur_pkg_list" ]
+	then
+		paru -S --needed - < "$aur_pkg_list"
+	fi
+
+	service_list="./install/service-lists/$1.txt"
+	if [ -f "$service_list" ]
+	then
+		while read -r service
+		do
+			sudo systemctl enable "$service.service"
+		done < "$service_list"
+	fi
+}
+
+if [ -z "$1" ]
+then
+	help
+	exit 1
+elif [ "$1" = '--help' ] || [ "$1" = '-h' ]
+then
+	help
+	exit 0
+fi
+
+selected_preset="$1"
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+mkdir -p "$XDG_CONFIG_HOME"
+
+setup_config "$selected_preset"
+setup_install "$selected_preset"
