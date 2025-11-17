@@ -1,3 +1,6 @@
 #!/bin/sh
 
+copy home "$XDG_CONFIG_HOME"
+copy shell "$XDG_CONFIG_HOME/shell"
+copy bash "$XDG_CONFIG_HOME/bash"
 copy git "$XDG_CONFIG_HOME/git"
